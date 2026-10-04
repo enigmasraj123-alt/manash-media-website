@@ -10,7 +10,7 @@ window.SITE_CONFIG = {
   GTM_CONTAINER_ID: "GTM-XXXXXXX",
 
   // Web3Forms access key (from web3forms.com after verifying your email).
-  WEB3FORMS_ACCESS_KEY: "YOUR-WEB3FORMS-ACCESS-KEY-HERE",
+  WEB3FORMS_ACCESS_KEY: "64877ae1-f635-44e9-9bdc-7136708aacee",
 
   // Canonical site URL — update once the real domain is live.
   SITE_URL: "https://www.manashmedia.com"
