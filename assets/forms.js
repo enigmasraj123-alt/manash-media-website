@@ -22,8 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      // FIX: a checkbox's .value is always "on" whether checked or not —
+      // checking .value here (regardless of input type) silently blocked
+      // every real submission, not just bots. Check .checked for
+      // checkboxes and .value for text/hidden inputs instead.
       var honeypot = form.querySelector('input[name="botcheck"]');
-      if (honeypot && honeypot.value !== "") { return; } // bot caught, drop silently
+      if (honeypot) {
+        var tripped = honeypot.type === "checkbox" ? honeypot.checked : honeypot.value !== "";
+        if (tripped) { return; } // bot caught, drop silently
+      }
 
       var submitBtn = form.querySelector('button[type="submit"]');
       var key = window.SITE_CONFIG && window.SITE_CONFIG.WEB3FORMS_ACCESS_KEY;
